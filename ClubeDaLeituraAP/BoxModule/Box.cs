@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeituraAP.BoxModule
 {
-    class Box
+    public class Box
     {
+        public int Id;
+        public string Tag;
+        public string Colour;
+        public int MaxBorrowDays;
+
+        public Box(string tag, string colour, int maxBorrowDays)
+        {
+            Tag = tag;
+            Colour = colour;
+            MaxBorrowDays = maxBorrowDays;
+        }
+
     }
 }
