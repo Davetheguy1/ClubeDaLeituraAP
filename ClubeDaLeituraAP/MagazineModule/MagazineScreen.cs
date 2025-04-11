@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeituraAP.MagazineModule
 {
-    class MagazineScreen
+    public class MagazineScreen
     {
     }
 }

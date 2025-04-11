@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeituraAP.MagazineModule
 {
-    class Magazine
+    public class Magazine
     {
         public int Id;
         public string Title;
@@ -15,6 +15,14 @@ namespace ClubeDaLeituraAP.MagazineModule
         public DateTime LaunchDate;
         public string CurrentStatus;
         public Box MaxBorrowDays;
+
+        public Magazine(string title, string edition, DateTime launchDate, int maxBorrowDays, Box box)
+        {
+            title = Title;
+            edition = Edition;
+            launchDate = LaunchDate;
+            maxBorrowDays = box.MaxBorrowDays;
+        }
     
     }
 }

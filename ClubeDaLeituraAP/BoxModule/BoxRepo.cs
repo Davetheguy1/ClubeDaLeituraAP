@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeituraAP.BoxModule
 {
-    class BoxRepo
+    public class BoxRepo
     {
+        public Box[] boxes = new Box[100];
+        public int amountOfBoxes = 0;
+
+        public void RegisterBox()
+        {
+
+        }
+
+
+
     }
 }

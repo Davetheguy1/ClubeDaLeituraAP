@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeituraAP.BorrowModule
 {
-    class BorrowRepo
+    public class BorrowRepo
     {
     }
 }

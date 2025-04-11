@@ -20,6 +20,9 @@ namespace ClubeDaLeituraAP.UserModule
             name = Name;
             parentName = ParentName;
             telephone = Telephone;
+            
+
+            
         }
 
         public void GetCurrentBorrows()
