@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeituraAP.MagazineModule;
+using GestãoDeEquipamentosAP.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,26 @@ namespace ClubeDaLeituraAP.BoxModule
                 }
             }
         }
+
+        /*public string GetColor()
+        {
+            string message;
+            switch (Colour)
+            {
+                case 1:
+                    message = Notifier.ShowMessage("Vermelho", ConsoleColor.Red);
+                    break;
+                case 2:
+                    Notifier.ShowMessage("Verde", ConsoleColor.Green);
+                    break;
+                case 3:
+                    Notifier.ShowMessage("Azul", ConsoleColor.Blue);
+                    break;
+                case 4:
+                    Notifier.ShowMessage("Amarelo", ConsoleColor.Yellow);
+                    break;
+            }
+        }*/
 
     }
 }

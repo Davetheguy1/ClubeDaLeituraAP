@@ -22,8 +22,58 @@ namespace ClubeDaLeituraAP.BoxModule
         
         public void RegisterBox()
         {
+            Console.Clear();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Registrar Nova Caixa");
+            Console.WriteLine("---------------------");
+            Console.WriteLine();
+            
             Box newBox = GetBoxData();
+
+            boxRepo.RegisterBox(newBox);
+
+            Notifier.ShowMessage("Caixa Registrada com Sucesso.", ConsoleColor.Green);
         }
+
+
+
+        public void VisualizeBox(bool showTitle)
+        {
+            if (showTitle)
+            {
+                Console.Clear();
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Caixas Ativas");
+                Console.WriteLine("---------------------");
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            Console.WriteLine(
+            "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20}",
+            "Id", "Etiqueta", "Cor", "Tempo de Empréstimo", "Qtd. de Revistas Registradas"
+        );
+            Box[] registeredBoxes = boxRepo.SelectBoxes();
+            int amountOfItem = boxRepo.amountOfBoxes;
+
+            for (int i = 0; i < registeredBoxes.Length; i++)
+            {
+                Box b = registeredBoxes[i];
+
+                if (b == null) continue;
+
+                Console.WriteLine(
+                    "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20}", b.Id, b.Tag, b.Colour ,b.MaxBorrowDays, amountOfItem
+                    );
+            }
+        
+        
+        
+        }
+
+
+
+
+
 
         public Box GetBoxData()
         {
