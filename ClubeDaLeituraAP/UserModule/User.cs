@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClubeDaLeituraAP.MagazineModule;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,10 @@ namespace ClubeDaLeituraAP.UserModule
         public string ParentName;
         public string Telephone;
         public int Strikes;
-        public string BlackListed;
+        public bool BlackListed;
+        public string HavePendencies;
+        public Magazine rentedMagazine;
+        public User[] AllUsers;
 
         public User(string name, string parentName, string telephone)
         {
@@ -21,22 +25,18 @@ namespace ClubeDaLeituraAP.UserModule
             parentName = ParentName;
             telephone = Telephone;
             
-
-            
         }
 
-        public void GetCurrentBorrows()
-        {
-
-        }
-
+        
         public string IsUserBlackListed(User user)
         {
             if (user.Strikes > 2)
             {
+                user.BlackListed = true;
                 return "Sim";
             } else
             {
+                user.BlackListed = false;
                 return "Não";
             }
             

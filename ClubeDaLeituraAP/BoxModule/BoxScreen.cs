@@ -17,9 +17,6 @@ namespace ClubeDaLeituraAP.BoxModule
         }
         
         
-        
-        
-        
         public void RegisterBox()
         {
             Console.Clear();
@@ -79,6 +76,14 @@ namespace ClubeDaLeituraAP.BoxModule
             int selectedId = int.Parse(Console.ReadLine());
 
             bool wasEditSucessful = boxRepo.DeleteBox(selectedId);
+
+            if (!wasEditSucessful)
+            {
+                Notifier.ShowMessage("Ocorreu um Erro durante a Edição", ConsoleColor.Red);
+                return;
+            }
+
+            Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
         }
 
 
