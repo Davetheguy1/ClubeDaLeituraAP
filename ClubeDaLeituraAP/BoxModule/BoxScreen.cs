@@ -86,7 +86,20 @@ namespace ClubeDaLeituraAP.BoxModule
             Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
         }
 
+        public void ShowMagsinBox() // stil need mag module to do this one
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Listagem de Conteudos da caixa");
+            Console.WriteLine("---------------------");
+            Console.WriteLine();
 
+            VisualizeBox(false);
+
+            Console.WriteLine("Digite o Id da caixa a qual deseja inspecionar:");
+            int selectedId = int.Parse(Console.ReadLine());
+
+        }
 
         public void VisualizeBox(bool showTitle)
         {

@@ -11,12 +11,12 @@ namespace ClubeDaLeituraAP.MagazineModule
     {
         public int Id;
         public string Title;
-        public string Edition;
+        public int Edition;
         public DateTime LaunchDate;
         public string CurrentStatus;
         public Box MaxBorrowDays;
 
-        public Magazine(string title, string edition, DateTime launchDate, int maxBorrowDays, Box box)
+        public Magazine(string title, int edition, DateTime launchDate, int maxBorrowDays, Box box)
         {
             title = Title;
             edition = Edition;
