@@ -10,7 +10,7 @@ namespace GestãoDeEquipamentosAP.Shared
     {
         public static int BoxId = 0;
         public static int UserId = 0;
-        public static int Magazine = 0;
+        public static int MagazineId = 0;
 
         public static int GenerateBoxID()
         {

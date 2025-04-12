@@ -34,25 +34,46 @@ namespace ClubeDaLeituraAP.BoxModule
             }
         }
 
-        /*public string GetColor()
+
+        public string ColorSelection(Box box)
         {
-            string message;
-            switch (Colour)
+            switch (box.Colour)
             {
                 case 1:
-                    message = Notifier.ShowMessage("Vermelho", ConsoleColor.Red);
+                    return "Vermelho";
                     break;
                 case 2:
-                    Notifier.ShowMessage("Verde", ConsoleColor.Green);
+                    return "Verde";
                     break;
                 case 3:
-                    Notifier.ShowMessage("Azul", ConsoleColor.Blue);
+                    return "Azul";
                     break;
                 case 4:
-                    Notifier.ShowMessage("Amarelo", ConsoleColor.Yellow);
+                    return "Amarelo";
                     break;
+                default:
+                    return "N/A";
+
+
+            }  
+        }
+
+
+       public int AmountOfMagsInBox()
+        {
+            int counter = 0;
+
+            for (int i = 0; i < magazines.Length; i++)
+            {
+                if (magazines[i] == null)
+                {
+                    counter++;
+                }
+
+               
             }
-        }*/
+            return counter;
+        }
 
     }
 }

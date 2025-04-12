@@ -35,6 +35,52 @@ namespace ClubeDaLeituraAP.BoxModule
             Notifier.ShowMessage("Caixa Registrada com Sucesso.", ConsoleColor.Green);
         }
 
+        public void EditBox()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Editar uma Caixa");
+            Console.WriteLine("---------------------");
+            Console.WriteLine();
+
+            VisualizeBox(false);
+
+            Console.WriteLine("Digite o Id da Caixa que deseja editar: ");
+            int selectedId = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            Box editedBox = GetBoxData();
+
+            bool wasEditSucessful = boxRepo.EditBox(selectedId, editedBox);
+
+            if (!wasEditSucessful)
+            {
+                Notifier.ShowMessage("Ocorreu um Erro durante a Edição", ConsoleColor.Red);
+                return;
+            }
+
+            Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
+        } 
+
+        public void DeleteBox()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Deletar uma Caixa");
+            Console.WriteLine("---------------------");
+            Console.WriteLine();
+            Notifier.ShowMessage("*Caixas que ainda contém revistas não poderam ser editadas", ConsoleColor.DarkYellow);
+            Console.WriteLine();
+            
+            VisualizeBox(false);
+
+            Console.WriteLine("Digite o Id da caixa que deseja excluir:");
+            int selectedId = int.Parse(Console.ReadLine());
+
+            bool wasEditSucessful = boxRepo.DeleteBox(selectedId);
+        }
+
 
 
         public void VisualizeBox(bool showTitle)
@@ -53,7 +99,7 @@ namespace ClubeDaLeituraAP.BoxModule
             "Id", "Etiqueta", "Cor", "Tempo de Empréstimo", "Qtd. de Revistas Registradas"
         );
             Box[] registeredBoxes = boxRepo.SelectBoxes();
-            int amountOfItem = boxRepo.amountOfBoxes;
+            
 
             for (int i = 0; i < registeredBoxes.Length; i++)
             {
@@ -62,17 +108,15 @@ namespace ClubeDaLeituraAP.BoxModule
                 if (b == null) continue;
 
                 Console.WriteLine(
-                    "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20}", b.Id, b.Tag, b.Colour ,b.MaxBorrowDays, amountOfItem
+                    "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20}", b.Id, b.Tag, b.ColorSelection(b) ,b.MaxBorrowDays, b.AmountOfMagsInBox()
                     );
             }
-        
-        
-        
+            Console.WriteLine();
+            Notifier.ShowMessage("Pressione Enter para Continuar...", ConsoleColor.DarkYellow);
+
+
+
         }
-
-
-
-
 
 
         public Box GetBoxData()

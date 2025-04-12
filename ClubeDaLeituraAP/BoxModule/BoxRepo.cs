@@ -19,6 +19,45 @@ namespace ClubeDaLeituraAP.BoxModule
             boxes[amountOfBoxes++] = newBox;
         }
 
+       
+        public bool EditBox(int selectedId, Box editedBox)
+        {
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                if (boxes[i] == null)
+                    continue;
+
+                else if (boxes[i].Id == selectedId)
+                {
+                    boxes[i].Tag = editedBox.Tag;
+                    boxes[i].Colour = editedBox.Colour;
+                    boxes[i].MaxBorrowDays = editedBox.MaxBorrowDays;
+
+                    return true;
+
+                }
+
+            }
+            return false;
+        }
+
+        public bool DeleteBox(int selectedId)
+        {
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                if (boxes[i] == null) continue;
+
+                else if (boxes[i].Id == selectedId)
+                {
+                    boxes[i] = null;
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        
+        
         public Box[] SelectBoxes()
         {
             return boxes;
