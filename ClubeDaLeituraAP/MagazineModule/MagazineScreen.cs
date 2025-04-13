@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeituraAP.BoxModule;
+using GestãoDeEquipamentosAP.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace ClubeDaLeituraAP.MagazineModule
         public MagazineRepo magazineRepo;
         public BoxRepo boxRepo;
         public BoxScreen boxScreen;
+        public int BoxId;
 
         public MagazineScreen(MagazineRepo magazineRepo, BoxRepo boxRepo, BoxScreen boxScreen)
         {
@@ -29,6 +31,94 @@ namespace ClubeDaLeituraAP.MagazineModule
             Console.WriteLine();
 
             Magazine newMagazine = GetMagData();
+            magazineRepo.RegisterMagazine(newMagazine);
+            magazineRepo.AlocateMag(BoxId, newMagazine);
+
+            Notifier.ShowMessage("Revista Registrada com Sucesso.", ConsoleColor.Green);
+        }
+
+        public void EditMagazine()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Editar Revista");
+            Console.WriteLine("---------------------");
+            Console.WriteLine();
+
+            VisualizeMagazines(false);
+
+            Console.WriteLine("Digite o Id da revista que deseja editar: ");
+            int selectedId = int.Parse(Console.ReadLine());
+
+            Magazine editedMag = GetMagData();
+
+            bool wasEditSucessful = magazineRepo.EditMagazine(selectedId, editedMag);
+
+            if (!wasEditSucessful)
+            {
+                Notifier.ShowMessage("Ocorreu um Erro durante a Edição", ConsoleColor.Red);
+                return;
+            }
+
+            Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
+
+        }
+
+        public void DeleteMagazine()
+        {
+            Console.Clear();
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Deletar uma Revista");
+            Console.WriteLine("---------------------");
+            Console.WriteLine();
+            Notifier.ShowMessage("*Revistas atualmente emprestadas não poderão ser Deletadas.", ConsoleColor.DarkYellow);
+            Console.WriteLine();
+
+            VisualizeMagazines(false);
+
+            Console.WriteLine("Digite o Id da revista que deseja excluir:");
+            int selectedId = int.Parse(Console.ReadLine());
+
+            bool wasEditSucessful = magazineRepo.DeleteMagazine(selectedId);
+
+            if (!wasEditSucessful)
+            {
+                Notifier.ShowMessage("Ocorreu um Erro durante a Edição", ConsoleColor.Red);
+                return;
+            }
+
+            Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
+        }
+
+        public void VisualizeMagazines(bool showTitle)
+        {
+            if (showTitle)
+            {
+                Console.Clear();
+                Console.WriteLine("---------------------");
+                Console.WriteLine("Todas as Revistas:");
+                Console.WriteLine("---------------------");
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            Console.WriteLine(
+            "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20} | {5, -20}",
+            "Id","Título", "Nº Da Edição", "Data de Lançamento", "Caixa", "Disponibilidade" // last one needs borrow module;
+        );
+            Magazine[] registerMagazines = magazineRepo.SelectMagazines();
+
+            for (int i = 0; i < registerMagazines.Length; i++)
+            {
+                Magazine m = registerMagazines[i];
+
+                if (m == null) continue;
+
+                Console.WriteLine(
+                    "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20} | {5, -20}", m.Id, m.Title, m.Edition, m.LaunchDate, m.DesignatedBox, m.CurrentStatus
+                    );
+            }
+            Console.WriteLine();
+            Notifier.ShowMessage("Pressione Enter para Continuar...", ConsoleColor.DarkYellow);
         }
 
         public Magazine GetMagData()
@@ -45,10 +135,15 @@ namespace ClubeDaLeituraAP.MagazineModule
 
             boxScreen.VisualizeBox(false);
             Console.WriteLine("Digite o Id da Caixa em que está revista deverá ser armazenda: ");
-            int BoxId = int.Parse(Console.ReadLine());
+            BoxId = int.Parse(Console.ReadLine());
 
-            //stoped here
+            Magazine newMagazine = new Magazine(title, edition, launchDate);
 
+            return newMagazine;
+
+            
+
+ 
 
         }
     }

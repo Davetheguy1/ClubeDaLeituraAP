@@ -13,15 +13,17 @@ namespace ClubeDaLeituraAP.MagazineModule
         public string Title;
         public int Edition;
         public DateTime LaunchDate;
-        public string CurrentStatus;
-        public Box MaxBorrowDays;
+        public string CurrentStatus = "Disponível";
+        public int MaxBorrowDays;
+        public string DesignatedBox;
 
-        public Magazine(string title, int edition, DateTime launchDate, int maxBorrowDays, Box box)
+        public Magazine(string title, int edition, DateTime launchDate)
         {
             title = Title;
             edition = Edition;
             launchDate = LaunchDate;
-            maxBorrowDays = box.MaxBorrowDays;
+            
+            
         }
     
     }
