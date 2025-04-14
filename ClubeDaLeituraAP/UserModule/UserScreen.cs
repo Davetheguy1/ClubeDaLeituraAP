@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeituraAP.BoxModule;
+using ClubeDaLeituraAP.Shared;
 using GestãoDeEquipamentosAP.Shared;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,50 @@ namespace ClubeDaLeituraAP.UserModule
     public class UserScreen
     {
         public UserRepo userRepo;
+        public MainMenuScreen mainMenu;
         
-        public UserScreen(UserRepo userRepo)
+        public UserScreen(UserRepo userRepo, MainMenuScreen mainMenu)
         {
             this.userRepo = userRepo;
+            this.mainMenu = mainMenu;
+        }
+
+        public void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("Usuários:");
+            Console.WriteLine("-----------------------\n\n");
+            Console.WriteLine("1.Registrar novo usuário\n2.Editar Usuários\n3.Deletar Usuários\n4.Visualizar Usuários\n5.Voltar\n");
+            Console.WriteLine("Digite uma opção válida: ");
+            int input = int.Parse(Console.ReadLine());
+
+            switch (input) {
+                case 1:
+                    RegisterUser();
+                    break;
+                case 2:
+                    EditUser();
+                    break;
+                case 3:
+                    DeleteUser();
+                    break;
+                case 4:
+                    VisualizeUser(true);
+                    break;
+                case 5:
+                    mainMenu.MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("Erro, Opção Inválida.");
+                    Console.ReadLine();
+                    break;
+            
+            
+            
+            
+            }
+
         }
 
         public void RegisterUser()

@@ -1,4 +1,5 @@
 ﻿using ClubeDaLeituraAP.BoxModule;
+using ClubeDaLeituraAP.Shared;
 using GestãoDeEquipamentosAP.Shared;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,15 @@ namespace ClubeDaLeituraAP.MagazineModule
         public MagazineRepo magazineRepo;
         public BoxRepo boxRepo;
         public BoxScreen boxScreen;
+        public MainMenuScreen mainMenu;
         public int BoxId;
 
-        public MagazineScreen(MagazineRepo magazineRepo, BoxRepo boxRepo, BoxScreen boxScreen)
+        public MagazineScreen(MagazineRepo magazineRepo, BoxRepo boxRepo, BoxScreen boxScreen, MainMenuScreen mainMenu)
         {
             this.magazineRepo = magazineRepo;
             this.boxRepo = boxRepo;
             this.boxScreen = boxScreen;
+            this.mainMenu = mainMenu;
         }
 
         public void RegisterMagazine()

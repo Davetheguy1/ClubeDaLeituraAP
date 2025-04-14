@@ -1,4 +1,5 @@
-﻿using GestãoDeEquipamentosAP.Shared;
+﻿using ClubeDaLeituraAP.Shared;
+using GestãoDeEquipamentosAP.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace ClubeDaLeituraAP.BoxModule
     public class BoxScreen
     {
         public BoxRepo boxRepo;
+        public MainMenuScreen mainMenu;
 
-        public BoxScreen(BoxRepo boxRepo)
+        public BoxScreen(BoxRepo boxRepo, MainMenuScreen mainMenu)
         {
             this.boxRepo = boxRepo;
+            this.mainMenu = mainMenu;
         }
         
         
