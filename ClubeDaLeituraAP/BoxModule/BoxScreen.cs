@@ -190,14 +190,14 @@ namespace ClubeDaLeituraAP.BoxModule
             string tag = Console.ReadLine();
 
             Console.WriteLine("Informe a Cor da Caixa:\n");
-            Notifier.ShowMessage("1.Vermelho\n", ConsoleColor.Red);
-            Notifier.ShowMessage("2.Verde\n", ConsoleColor.Green);
-            Notifier.ShowMessage("3.Azul\n", ConsoleColor.Blue);
-            Notifier.ShowMessage("4.Amarelo\n", ConsoleColor.Yellow);
+            Console.WriteLine("1.Vermelho");
+            Console.WriteLine("2.Verde");
+            Console.WriteLine("1.Azul");
+            Console.WriteLine("1.Amarelo");
             int colour = int.Parse(Console.ReadLine());
             
 
-            Console.WriteLine("Por quanto tempo as revistas dessa caixa poderão ser emprestadas?: ");
+            Console.WriteLine("Por quanto tempo as revistas dessa caixa poderão ser emprestadas (dias)?: ");
             int maxBorrowDays = int.Parse(Console.ReadLine());
 
             Box box = new Box(tag, colour, maxBorrowDays);

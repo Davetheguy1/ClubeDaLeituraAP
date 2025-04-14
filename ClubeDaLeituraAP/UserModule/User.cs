@@ -21,9 +21,9 @@ namespace ClubeDaLeituraAP.UserModule
 
         public User(string name, string parentName, string telephone)
         {
-            name = Name;
-            parentName = ParentName;
-            telephone = Telephone;
+            Name = name;
+            ParentName = parentName;
+            Telephone = telephone;
             
         }
 

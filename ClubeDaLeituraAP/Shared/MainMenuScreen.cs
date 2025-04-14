@@ -26,8 +26,8 @@ namespace ClubeDaLeituraAP.Shared
             MagazineScreen magazine = new MagazineScreen(magazineRepo, boxRepo, box, this);
 
             BorrowRepo borrowRepo= new BorrowRepo();
-            BorrowScreen borrowScreen = new BorrowScreen(borrowRepo, magazineRepo, magazine, userRepo,user, this);
-            borrowScreen.
+            BorrowScreen borrow = new BorrowScreen(borrowRepo, magazineRepo, magazine, userRepo,user, this);
+            
 
 
 
