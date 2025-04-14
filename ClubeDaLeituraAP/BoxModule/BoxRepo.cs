@@ -55,6 +55,26 @@ namespace ClubeDaLeituraAP.BoxModule
             }
             return false;
         }
+
+        /*public void ShowMagsInBox(int selectedId)
+        {
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                if (boxes[i] == null)
+                    continue;
+
+                else if (boxes[i].Id == selectedId)
+                {
+                    for (int j = 0; j < boxes[i].AmountOfMagazines[])
+
+                    
+
+                }
+
+            }
+            
+        
+        }*/
         
         
         

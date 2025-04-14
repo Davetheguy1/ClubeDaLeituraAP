@@ -18,8 +18,47 @@ namespace ClubeDaLeituraAP.BoxModule
             this.boxRepo = boxRepo;
             this.mainMenu = mainMenu;
         }
-        
-        
+
+        public void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("Caixas:");
+            Console.WriteLine("-----------------------\n\n");
+            Console.WriteLine("1.Registrar nova Caixa\n2.Editar Caixas\n3.Deletar Caixas\n4.Visualizar Caixas\n5.Voltar\n");
+            Console.WriteLine("Digite uma opção válida: ");
+            int input = int.Parse(Console.ReadLine());
+
+            switch (input)
+            {
+                case 1:
+                    RegisterBox();
+                    break;
+                case 2:
+                    EditBox();
+                    break;
+                case 3:
+                    DeleteBox();
+                    break;
+                case 4:
+                    VisualizeBox(true);
+                    break;
+                case 5:
+                    mainMenu.MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("Erro, Opção Inválida.");
+                    Console.ReadLine();
+                    break;
+
+
+
+
+            }
+
+        }
+
+
         public void RegisterBox()
         {
             Console.Clear();
@@ -89,11 +128,11 @@ namespace ClubeDaLeituraAP.BoxModule
             Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
         }
 
-        public void ShowMagsinBox() // stil need mag module to do this one
+        /*public void ShowMagsinBox() 
         {
             Console.Clear();
             Console.WriteLine("---------------------");
-            Console.WriteLine("Listagem de Conteudos da caixa");
+            Console.WriteLine("Listagem de Revistas da caixa");
             Console.WriteLine("---------------------");
             Console.WriteLine();
 
@@ -102,7 +141,12 @@ namespace ClubeDaLeituraAP.BoxModule
             Console.WriteLine("Digite o Id da caixa a qual deseja inspecionar:");
             int selectedId = int.Parse(Console.ReadLine());
 
-        }
+            boxRepo.ShowMagsInBox(selectedId);
+
+            Console.WriteLine();
+            Notifier.ShowMessage("Pressione Enter para Continuar...", ConsoleColor.DarkYellow);
+
+        }*/
 
         public void VisualizeBox(bool showTitle)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClubeDaLeituraAP.BorrowModule;
 using ClubeDaLeituraAP.BoxModule;
 using ClubeDaLeituraAP.MagazineModule;
 using ClubeDaLeituraAP.UserModule;
@@ -24,7 +25,9 @@ namespace ClubeDaLeituraAP.Shared
             MagazineRepo magazineRepo = new MagazineRepo();
             MagazineScreen magazine = new MagazineScreen(magazineRepo, boxRepo, box, this);
 
-            // modulo de empréstimos aqui
+            BorrowRepo borrowRepo= new BorrowRepo();
+            BorrowScreen borrowScreen = new BorrowScreen(borrowRepo, magazineRepo, magazine, userRepo,user, this);
+            borrowScreen.
 
 
 
@@ -48,16 +51,16 @@ namespace ClubeDaLeituraAP.Shared
                 switch (input)
                 {
                     case 1:
-                        //user.Menu();
+                        user.Menu();
                         break;
                     case 2:
-                        //box.Menu();
+                        box.Menu();
                         break;
                     case 3:
-                        //magazine.Menu();
+                        magazine.Menu();
                         break;
                     case 4:
-                        //borrow.Menu();
+                        borrow.Menu();
                         break;
                     case 5:
                         Environment.Exit(0);

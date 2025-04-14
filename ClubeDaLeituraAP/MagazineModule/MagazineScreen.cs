@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ClubeDaLeituraAP.MagazineModule
 {
+
+
+
     public class MagazineScreen
     {
         public MagazineRepo magazineRepo;
@@ -23,6 +26,45 @@ namespace ClubeDaLeituraAP.MagazineModule
             this.boxRepo = boxRepo;
             this.boxScreen = boxScreen;
             this.mainMenu = mainMenu;
+        }
+
+        public void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("Revistas:");
+            Console.WriteLine("-----------------------\n\n");
+            Console.WriteLine("1.Registrar nova revistas\n2.Editar Revistas\n3.Deletar Revistas\n4.Visualizar Revistas\n5.Voltar\n");
+            Console.WriteLine("Digite uma opção válida: ");
+            int input = int.Parse(Console.ReadLine());
+
+            switch (input)
+            {
+                case 1:
+                    RegisterMagazine();
+                    break;
+                case 2:
+                    EditMagazine();
+                    break;
+                case 3:
+                    DeleteMagazine();
+                    break;
+                case 4:
+                    VisualizeMagazines(true);
+                    break;
+                case 5:
+                    mainMenu.MainMenu();
+                    break;
+                default:
+                    Console.WriteLine("Erro, Opção Inválida.");
+                    Console.ReadLine();
+                    break;
+
+
+
+
+            }
+
         }
 
         public void RegisterMagazine()
@@ -74,7 +116,7 @@ namespace ClubeDaLeituraAP.MagazineModule
             Console.WriteLine("Deletar uma Revista");
             Console.WriteLine("---------------------");
             Console.WriteLine();
-            Notifier.ShowMessage("*Revistas atualmente emprestadas não poderão ser Deletadas.", ConsoleColor.DarkYellow);
+            Console.WriteLine("*Revistas atualmente emprestadas não poderão ser Deletadas.");
             Console.WriteLine();
 
             VisualizeMagazines(false);

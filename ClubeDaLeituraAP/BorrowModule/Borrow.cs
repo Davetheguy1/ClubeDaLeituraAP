@@ -11,18 +11,20 @@ namespace ClubeDaLeituraAP.BorrowModule
 {
     public class Borrow
     {
-        public User User;
-        public Magazine Magazine;
+        public int Id;
+        public string User;
+        public string Magazine;
         public DateTime InitialDate;
         public DateTime FinalDate;
-        public Box Box;
+        public int MaxBorrowDays;
 
-        public Borrow(User user, Magazine magazine, Box box)
+        public Borrow(string user, string magazine, int maxBorrowDays)
         {
             User = user;
             Magazine = magazine;
             InitialDate = new DateTime();
-            FinalDate = InitialDate.AddDays(box.MaxBorrowDays);
+            MaxBorrowDays = maxBorrowDays;
+            FinalDate = InitialDate.AddDays(MaxBorrowDays);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace GestãoDeEquipamentosAP.Shared
         public static int BoxId = 0;
         public static int UserId = 0;
         public static int MagazineId = 0;
+        public static int BorrowId;
 
         public static int GenerateBoxID()
         {
@@ -28,6 +29,12 @@ namespace GestãoDeEquipamentosAP.Shared
         {
             MagazineId++;
             return MagazineId;
+        }
+
+        public static int GenerateBorrowId()
+        {
+            BorrowId++;
+            return BorrowId;
         }
     }
 }
