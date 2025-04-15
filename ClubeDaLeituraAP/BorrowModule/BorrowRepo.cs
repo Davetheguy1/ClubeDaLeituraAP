@@ -15,9 +15,17 @@ namespace ClubeDaLeituraAP.BorrowModule
     {
         MagazineRepo magazineRepo;
         UserRepo userRepo;
+        BoxRepo boxRepo;
         
         public Borrow[] borrows = new Borrow[100];
         public int amountOfBorrows = 0;
+
+        public BorrowRepo(BoxRepo boxRepo,UserRepo userRepo,MagazineRepo magazineRepo)
+        {
+            this.boxRepo = boxRepo;
+            this.userRepo = userRepo;
+            this.magazineRepo = magazineRepo;
+        }
 
         public void RegisterBorrow(Borrow newBorrow)
         {

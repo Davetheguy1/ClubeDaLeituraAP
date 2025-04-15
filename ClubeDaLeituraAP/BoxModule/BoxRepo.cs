@@ -1,4 +1,5 @@
-﻿using GestãoDeEquipamentosAP.Shared;
+﻿using ClubeDaLeituraAP.MagazineModule;
+using GestãoDeEquipamentosAP.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace ClubeDaLeituraAP.BoxModule
         public void RegisterBox(Box newBox)
         {
             newBox.Id = IdGenerator.GenerateBoxID();
+            newBox.magazines = new Magazine[100]; 
 
             boxes[amountOfBoxes++] = newBox;
         }

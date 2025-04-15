@@ -14,6 +14,11 @@ namespace ClubeDaLeituraAP.MagazineModule
         public Magazine[] magazines = new Magazine[100];
         public int amountOfMagazines = 0;
 
+        public MagazineRepo(BoxRepo boxRepo)
+        {
+            this.boxRepo = boxRepo;
+        }
+
         public void RegisterMagazine(Magazine newMagazine)
         {
             newMagazine.Id = IdGenerator.GenerateMagazine();
@@ -66,7 +71,7 @@ namespace ClubeDaLeituraAP.MagazineModule
         {
             for (int i = 0; i < boxRepo.boxes[i].magazines.Length; i++)
             {
-                if (boxRepo.boxes[i].magazines == null)
+                if (boxRepo.boxes[i].Id == null)
                     continue;
 
                 else if (boxRepo.boxes[i].Id == boxId)

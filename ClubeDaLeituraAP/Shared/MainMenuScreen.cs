@@ -22,10 +22,10 @@ namespace ClubeDaLeituraAP.Shared
             UserRepo userRepo = new UserRepo();
             UserScreen user = new UserScreen(userRepo, this);
 
-            MagazineRepo magazineRepo = new MagazineRepo();
+            MagazineRepo magazineRepo = new MagazineRepo(boxRepo);
             MagazineScreen magazine = new MagazineScreen(magazineRepo, boxRepo, box, this);
 
-            BorrowRepo borrowRepo= new BorrowRepo();
+            BorrowRepo borrowRepo= new BorrowRepo(boxRepo,userRepo,magazineRepo);
             BorrowScreen borrow = new BorrowScreen(borrowRepo, magazineRepo, magazine, userRepo,user, this);
             
 

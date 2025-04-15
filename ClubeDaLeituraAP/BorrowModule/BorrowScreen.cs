@@ -157,9 +157,11 @@ namespace ClubeDaLeituraAP.BorrowModule
                 if (b == null) continue;
 
                 Console.WriteLine(
-                    "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20} | {5, -20}", b.Id, b.User, b.Magazine, b.InitialDate, b.FinalDate
+                    "{0, -6} | {1, -20} | {2, -30} | {3, -30} | {4, -20}", b.Id, b.User, b.Magazine, b.InitialDate, b.FinalDate
                     );
             }
+            Console.WriteLine();
+            Notifier.ShowMessage("Pressione Enter para Continuar...", ConsoleColor.DarkYellow);
         }
 
         private Borrow GetBorrowData()
