@@ -192,8 +192,8 @@ namespace ClubeDaLeituraAP.BoxModule
             Console.WriteLine("Informe a Cor da Caixa:\n");
             Console.WriteLine("1.Vermelho");
             Console.WriteLine("2.Verde");
-            Console.WriteLine("1.Azul");
-            Console.WriteLine("1.Amarelo");
+            Console.WriteLine("3.Azul");
+            Console.WriteLine("4.Amarelo");
             int colour = int.Parse(Console.ReadLine());
             
 

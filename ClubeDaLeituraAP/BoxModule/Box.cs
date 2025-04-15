@@ -63,6 +63,9 @@ namespace ClubeDaLeituraAP.BoxModule
 
        public int AmountOfMagsInBox()
         {
+            if (magazines == null)
+                return 0;
+
             int counter = 0;
 
             for (int i = 0; i < magazines.Length; i++)

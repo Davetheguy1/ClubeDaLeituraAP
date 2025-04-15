@@ -64,9 +64,9 @@ namespace ClubeDaLeituraAP.MagazineModule
         
         public void AlocateMag(int boxId, Magazine magazine)
         {
-            for (int i = 0; i < boxRepo.boxes.Length; i++)
+            for (int i = 0; i < boxRepo.boxes[i].magazines.Length; i++)
             {
-                if (boxRepo.boxes[i] == null)
+                if (boxRepo.boxes[i].magazines == null)
                     continue;
 
                 else if (boxRepo.boxes[i].Id == boxId)
