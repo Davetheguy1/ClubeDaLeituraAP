@@ -41,5 +41,27 @@ namespace ClubeDaLeituraAP.UserModule
             }
             
         }
+
+        public string Validate()
+        {
+            string errors = null;
+
+            if (string.IsNullOrWhiteSpace(Name))
+                errors += "O Campo Nome é Obrigatório.\n";
+
+            else if (Name.Length < 3 || Name.Length > 100)
+                errors += "O Campo Nome não atende o limite de caracteres\n";
+
+            if (string.IsNullOrWhiteSpace(ParentName))
+                errors += "O Campo Nome do Responsável é Obrigatório.\n";
+
+            else if (Name.Length < 3 || Name.Length > 100)
+                errors += "O Campo Nome do responsável não atende o limite de caracteres\n";
+
+            if (string.IsNullOrWhiteSpace(Telephone))
+                errors += "O Campo Telefone é obrigatório\n";
+
+            return errors;
+        }
     }
 }

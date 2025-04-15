@@ -69,6 +69,16 @@ namespace ClubeDaLeituraAP.BoxModule
             
             Box newBox = GetBoxData();
 
+            string errors = newBox.Validate();
+
+            if (errors.Length > 0)
+            {
+                Notifier.ShowMessage(errors, ConsoleColor.Red);
+
+                return;
+            }
+
+
             boxRepo.RegisterBox(newBox);
 
             Notifier.ShowMessage("Caixa Registrada com Sucesso.", ConsoleColor.Green);
@@ -186,7 +196,7 @@ namespace ClubeDaLeituraAP.BoxModule
 
         public Box GetBoxData()
         {
-            Console.WriteLine("Digite o Nome (Etiqueta) da Caixa: ");
+            Console.WriteLine("Digite o Nome (Etiqueta) da Caixa (entre 3 e 50 caracteres): ");
             string tag = Console.ReadLine();
 
             Console.WriteLine("Informe a Cor da Caixa:\n");

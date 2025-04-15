@@ -71,6 +71,15 @@ namespace ClubeDaLeituraAP.UserModule
 
             userRepo.RegisterUser(newUser);
 
+            string errors = newUser.Validate();
+
+            if (errors.Length > 0)
+            {
+                Notifier.ShowMessage(errors, ConsoleColor.Red);
+
+                return;
+            }
+
             Notifier.ShowMessage("Usuário Registrado com Sucesso.", ConsoleColor.Green);
         }
 

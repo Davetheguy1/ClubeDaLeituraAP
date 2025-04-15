@@ -80,5 +80,22 @@ namespace ClubeDaLeituraAP.BoxModule
             return counter;
         }
 
+        public string Validate()
+        {
+            string errors = null;
+
+            if (string.IsNullOrWhiteSpace(Tag))
+                errors += "O Campo Etiqueta é Obrigatório.\n";
+
+            else if (Tag.Length < 3 || Tag.Length > 50)
+                errors += "O Campo Etiqueta não atende o limite de caracteres\n";
+
+            return errors;
+            
+
+
+            
+        }
+
     }
 }
