@@ -1,19 +1,19 @@
 # ClubeDaLeituraAP
-## Descrição
-um sistema organizador para um clube da leitura que viabiliza o empréstimo e a gestão de revistas, Feito para a Academia do Programador.
+## DescriÃ§Ã£o
+um sistema organizador para um clube da leitura que viabiliza o emprÃ©stimo e a gestÃ£o de revistas, Feito para a Academia do Programador.
 ## Funcionalidade
-Ao iniciar o programa, o usuário poderá administrar três paramêtros, os usuários cadastrados, as caixas de revistas e as revistas em sí, além de poder gerenciar os empréstimos referentes a elas.
+Ao iniciar o programa, o usuÃ¡rio poderÃ¡ administrar trÃªs paramÃªtros, os usuÃ¡rios cadastrados, as caixas de revistas e as revistas em sÃ­, alÃ©m de poder gerenciar os emprÃ©stimos referentes a elas.
 Todas as Categorias podem:
 
-### Receber Registros de Novos Items.
-### Editar os Items Existentes.
-### Deletar um Item da Lista.
-### Visualizar todos os Items naquela categoria.
+#### *Receber Registros de Novos Items.
+#### *Editar os Items Existentes.
+#### *Deletar um Item da Lista.
+#### *Visualizar todos os Items naquela categoria.
 
-## Créditos
+## CrÃ©ditos
 Programa feito por Danilo Cenci (https://github.com/Davetheguy1)
 
-Agradecimentos à
+Agradecimentos Ã 
 
 Tiago Santini, da Academia do Programador (https://github.com/tiagosantini)
 
