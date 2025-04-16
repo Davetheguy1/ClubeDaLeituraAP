@@ -61,7 +61,12 @@ namespace ClubeDaLeituraAP.UserModule
             if (string.IsNullOrWhiteSpace(Telephone))
                 errors += "O Campo Telefone é obrigatório\n";
 
-            return errors;
+            else if (Telephone.Length < 11)
+            {
+                errors += "O Campo Telefone Não atende o limite imposto";
+            }
+
+                return errors;
         }
     }
 }

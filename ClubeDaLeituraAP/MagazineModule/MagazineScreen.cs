@@ -76,6 +76,16 @@ namespace ClubeDaLeituraAP.MagazineModule
             Console.WriteLine();
 
             Magazine newMagazine = GetMagData();
+
+            string errors = newMagazine.Validate();
+
+            if (errors.Length > 0)
+            {
+                Notifier.ShowMessage(errors, ConsoleColor.Red);
+
+                return;
+            }
+            
             magazineRepo.RegisterMagazine(newMagazine);
             magazineRepo.AlocateMag(BoxId, newMagazine);
 
@@ -168,10 +178,10 @@ namespace ClubeDaLeituraAP.MagazineModule
 
         public Magazine GetMagData()
         {
-            Console.WriteLine("Digite o Titulo da Revista: ");
+            Console.WriteLine("Digite o Titulo da Revista (Entre 2 e 100 caracteres): ");
             string title = Console.ReadLine();
 
-            Console.WriteLine("Digite o Nº da Edição: ");
+            Console.WriteLine("Digite o Nº da Edição (Número Inteiro Positivo): ");
             int edition = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Digite a Data de Lançamento (dd/mm/yyyy): ");

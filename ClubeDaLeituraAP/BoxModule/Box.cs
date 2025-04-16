@@ -13,7 +13,7 @@ namespace ClubeDaLeituraAP.BoxModule
         public int Id;
         public string Tag;
         public int Colour;
-        public int MaxBorrowDays;
+        public int MaxBorrowDays = 7;
         public Magazine[] magazines = new Magazine[100];
         public int AmountOfMagazines;
 

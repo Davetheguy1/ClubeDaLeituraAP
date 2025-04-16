@@ -25,6 +25,22 @@ namespace ClubeDaLeituraAP.MagazineModule
             
             
         }
+
+        public string Validate()
+        {
+            string errors = null;
+
+            if (string.IsNullOrWhiteSpace(Title))
+            {
+                errors += "O Campo Titulo é Obrigatório";
+            }
+            else if (Title.Length < 2 || Title.Length > 100)
+            {
+                errors += "O Titulo não atende os limites Impostos";
+            }
+
+            return errors;
+        }
     
     }
 }

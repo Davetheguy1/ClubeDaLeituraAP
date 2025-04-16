@@ -138,25 +138,6 @@ namespace ClubeDaLeituraAP.BoxModule
             Notifier.ShowMessage("Item Editado com Sucesso", ConsoleColor.Green);
         }
 
-        /*public void ShowMagsinBox() 
-        {
-            Console.Clear();
-            Console.WriteLine("---------------------");
-            Console.WriteLine("Listagem de Revistas da caixa");
-            Console.WriteLine("---------------------");
-            Console.WriteLine();
-
-            VisualizeBox(false);
-
-            Console.WriteLine("Digite o Id da caixa a qual deseja inspecionar:");
-            int selectedId = int.Parse(Console.ReadLine());
-
-            boxRepo.ShowMagsInBox(selectedId);
-
-            Console.WriteLine();
-            Notifier.ShowMessage("Pressione Enter para Continuar...", ConsoleColor.DarkYellow);
-
-        }*/
 
         public void VisualizeBox(bool showTitle)
         {
@@ -196,7 +177,7 @@ namespace ClubeDaLeituraAP.BoxModule
 
         public Box GetBoxData()
         {
-            Console.WriteLine("Digite o Nome (Etiqueta) da Caixa (entre 3 e 50 caracteres): ");
+            Console.WriteLine("Digite o Nome (Etiqueta) da Caixa (até 50 caracteres): ");
             string tag = Console.ReadLine();
 
             Console.WriteLine("Informe a Cor da Caixa:\n");

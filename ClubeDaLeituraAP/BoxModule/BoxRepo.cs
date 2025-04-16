@@ -51,6 +51,13 @@ namespace ClubeDaLeituraAP.BoxModule
 
                 else if (boxes[i].Id == selectedId)
                 {
+                    if (boxes[i].magazines.Length > 0)
+                    {
+                        Console.WriteLine("Não é possivel deletar uma caixa que ainda contém revistas.");
+                        return false;
+                    }
+                    
+                    
                     boxes[i] = null;
                     return true;
                 }
@@ -58,28 +65,6 @@ namespace ClubeDaLeituraAP.BoxModule
             return false;
         }
 
-        /*public void ShowMagsInBox(int selectedId)
-        {
-            for (int i = 0; i < boxes.Length; i++)
-            {
-                if (boxes[i] == null)
-                    continue;
-
-                else if (boxes[i].Id == selectedId)
-                {
-                    for (int j = 0; j < boxes[i].AmountOfMagazines[])
-
-                    
-
-                }
-
-            }
-            
-        
-        }*/
-        
-        
-        
         public Box[] SelectBoxes()
         {
             return boxes;
